@@ -1,76 +1,87 @@
 import java.util.Random;
+
 public class Virtualpet {
 
 	Random r = new Random();
-	
-	int hunger = 10;//hunger is an instance variable
-	int drysoil = 10;
-	int boredom = 10;
-	int sickness = 10;
-	
-	boolean alive = (hunger < 50 && drysoil < 50); { 
-	}
-	
 
-void Exit () { 
-	System.exit(0);
+	String name;
+	String description;
+	int hunger;
+	int thirst;
+	int boredom;
+
+	public Virtualpet(String newName, String newDescription) {
+		name = newName;
+		description = newDescription;
+		hunger = 50;
+		thirst = 50;
+		boredom = 50;
 	}
-	
+	public Virtualpet(String newName, String newDescription, int newHunger, int newThirst, int newBoredom) {
+		name = newName;
+		description = newDescription;
+		hunger = newHunger;
+		thirst = newThirst;
+		boredom = newBoredom;
+
+	}
+
+	boolean alive = (hunger < 50 && thirst < 50);
+	{
+	}
+
+	void Exit() {
+		System.exit(0);
+	}
+
 	void feed() {
-		hunger = hunger - 10; //hunger -=10
+		hunger = hunger - 10; // hunger -=10
 	}
+
 	boolean isHungry() {
-	return hunger >= 50; //if hunger is greater than or equal to 60 then the pet is hungry
+		return hunger >= 50; // if hunger is greater than or equal to 60 then
+								// the pet is hungry
 	}
-	
-	int getHunger() { 
-	return hunger;
+
+	int getHunger() {
+		return hunger;
 	}
-	
-	 {
-	hunger = hunger + 10; //hunger +5
+
+	{
+		hunger = hunger + 10; // hunger +5
 	}
+
 	void water() {
-		drysoil = drysoil - 10; //hunger -=10
+		thirst = thirst - 10;
 	}
+
 	boolean isDry() {
-	return drysoil >= 50; //if hunger is greater than or equal to 60 then the pet is hungry
+		return thirst >= 50;
 	}
-	
-	int getDryness() { 
-	return drysoil;
+
+	int getDryness() {
+		return thirst;
 	}
-	
-	
+
 	void entertain() {
 		boredom = boredom - 10;
 	}
+
 	boolean isBored() {
-	return boredom >= 50; 
-	}
-	
-	int getBored() { 
-	return boredom;
-	}
-	void spray() {
-		sickness = sickness - 10; //hunger -=10
-	}
-	boolean isSick() {
-	return sickness >= 50; //if hunger is greater than or equal to 60 then the pet is hungry
-	}
-	
-	int getSickness() { 
-	return sickness;
-	}
-	
-	 {
-	sickness = sickness + 10; //hunger +5
-	}
-	void tick () {
-	hunger = hunger+r.nextInt(10);
-	drysoil =drysoil+r.nextInt(10);
-	}
-	
+		return boredom >= 50;
 	}
 
+	int getBored() {
+		return boredom;
+	}
 
+	void tick() {
+		hunger = hunger + r.nextInt(10);
+		thirst = thirst + r.nextInt(10);
+	}
+	public String getName() {
+		return name;
+	}
+	
+
+}
